@@ -6,10 +6,14 @@ import java.util.Scanner;
 public class Menu {
 
 	public static void main(String[] args) {
+		int aux=0;
 		ArrayList<Produtos> estoque = new ArrayList<Produtos>();
+		ArrayList<String> nomes = new ArrayList<String>();
+		ArrayList<Double> Quantidades = new ArrayList<Double>();
 		Estoque estoque1=new Estoque(estoque);
 		while(true){
-			int opcao;Scanner input = new Scanner(System.in);
+			int opcao;
+			Scanner input = new Scanner(System.in);
 			System.out.println("Escolha uma opção");
 			System.out.println("1 - adicionar produto");
 			System.out.println("2 - remover produto");
@@ -38,17 +42,23 @@ public class Menu {
 				quantidade=input.nextDouble();
 				Produtos produto = new Produtos(nome, id, categoria_id, valor, quantidade);
 				estoque1.adicionar(produto);
+				nomes.add(nome);
+				Quantidades.add(quantidade);
+				aux++;
 			}
 			
 			if(opcao==2) {
-				int aux;
+				int aux2;
 				System.out.println("digite o indice a ser removido");
-				aux=input.nextInt();
-				estoque1.remover(aux);
+				aux2=input.nextInt();
+				estoque1.remover(aux2);
+				nomes.remove(aux2);
+				aux--;
 			}
 			
 			if(opcao==3) {
-				estoque1.getEstoque();
+				System.out.println(nomes);
+				System.out.println(Quantidades);
 			}
 		}
 	}

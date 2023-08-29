@@ -3,25 +3,33 @@ package Vendas;
 import java.util.ArrayList;
 
 public class Estoque {
-	ArrayList<Produtos> Estoque = new ArrayList<Produtos>();
+	ArrayList<Produtos> estoque = new ArrayList<Produtos>();
 
 	public Estoque(ArrayList<Produtos> estoque) {
-		Estoque = estoque;
+		this.estoque = estoque;
 	}
 	
 	public void adicionar(Produtos produto) {
-		Estoque.add(produto);
+		estoque.add(produto);
 	}
 
 	public void remover (int i) {
-		Estoque.remove(i);
+		estoque.remove(i);
 	}
 	
+	
+
 	public ArrayList<Produtos> getEstoque() {
-		return Estoque;
+		return estoque;
 	}
 
+	public String getEstoque_nome(int i) {
+		return estoque.get(i).getNome();
+		}
+		
+	
+	
 	public void setEstoque(ArrayList<Produtos> estoque) {
-		Estoque = estoque;
+		this.estoque = estoque;
 	}
 }
